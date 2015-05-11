@@ -33,7 +33,7 @@ As a user, I want to be able to learn and study javascript using flashcards so t
 - As a user, I want  so that .
 
 
-User Story templace
+User Story template
 As a type of user, I want some goal so that some reason.
 As a user, I want  so that .
 
