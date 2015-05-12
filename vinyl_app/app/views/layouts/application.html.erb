@@ -8,7 +8,29 @@
 </head>
 <body>
 
-<%= yield %>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a class="navbar-brand" href="/" class="active">Vinyl.me</a></li>
+        <!-- if current_user = nil -->
+            <li><a href="/about">About <span class="sr-only">(current)</span> </a></li>
+            <li><%= link_to "Playlists", playlists_path %></li>
+        <!-- if current_user != nil, Collection and Wishlist -->
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Sign Up</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

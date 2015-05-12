@@ -1,0 +1,17 @@
+<h2>Playlists</h2>
+
+<!-- <button type="button" class="btn btn-default btn-sm" aria-label="Left Align">
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+</button> -->
+
+<div class="row">
+  <ul>
+    <% @playlists.each do |playlist| %>
+      <div class="col-md-4">
+        <li>
+          <%= playlist.name %>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>
