@@ -5,11 +5,11 @@
 </button> -->
 
 <div class="row">
-  <ul>
+  <ul class="list-group">
     <% @playlists.each do |playlist| %>
-      <div class="col-md-4">
-        <li>
-          <%= playlist.name %>
+      <div class="col-md-8">
+        <li class="list-group-item">
+          <%= link_to playlist.name, playlist %>
         </li>
       </div>
     <% end %>

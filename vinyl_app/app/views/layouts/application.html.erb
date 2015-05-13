@@ -22,7 +22,14 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Sign Up</a></li>
+            <li>
+              <%=
+                 link_to_if(@current_user.nil?, "Login", new_user_session_path) do
+                   link_to(@current_user.login, { controller: "accounts", action: "show", id: @current_user })
+                 end
+              %>
+              <%#= link_to "Sign In", new_user_session_path %>
+            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
