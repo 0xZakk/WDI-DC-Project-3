@@ -18,12 +18,18 @@ Record.prototype = {
       dataType: 'json',
       url: window.location.origin + '/records.json'
     }).done(function(response){
-      console.log("record saved");
-    });
-  },
+      console.log("Record successfully added to record database");
+      var playlistRecord = new PlaylistRecord(response);
 
+      playlistRecord.save();
+
+      $(".playlist").append("<li>"+ response.album_name + "</li>");
+    });
+  }
 };
 
+    // playlist_id
+    // record_id
 
 
 

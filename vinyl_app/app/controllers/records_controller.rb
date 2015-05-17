@@ -13,7 +13,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.create(record_params)
-    render json: @card
+    render json: @record
   end
 
   private

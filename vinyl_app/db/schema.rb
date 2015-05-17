@@ -11,23 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512192812) do
+ActiveRecord::Schema.define(version: 20150514141420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "playlist_records", force: :cascade do |t|
+    t.integer "playlist_id"
+    t.integer "record_id"
+  end
+
+  add_index "playlist_records", ["playlist_id"], name: "index_playlist_records_on_playlist_id", using: :btree
+  add_index "playlist_records", ["record_id"], name: "index_playlist_records_on_record_id", using: :btree
 
   create_table "playlists", force: :cascade do |t|
     t.string "name"
     t.string "genre"
   end
-
-  create_table "playlists_records", id: false, force: :cascade do |t|
-    t.integer "playlist_id", null: false
-    t.integer "record_id",   null: false
-  end
-
-  add_index "playlists_records", ["playlist_id"], name: "index_playlists_records_on_playlist_id", using: :btree
-  add_index "playlists_records", ["record_id"], name: "index_playlists_records_on_record_id", using: :btree
 
   create_table "records", force: :cascade do |t|
     t.string "album_name"
@@ -57,4 +57,6 @@ ActiveRecord::Schema.define(version: 20150512192812) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "playlist_records", "playlists"
+  add_foreign_key "playlist_records", "records"
 end

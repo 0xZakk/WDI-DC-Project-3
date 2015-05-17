@@ -1,15 +1,46 @@
 <div class="row">
-  <div class="col-md-4">
-    <%= render "search" %>
+  <div class="col-md-1">
   </div>
-  <div class="col-md-8">
+  <div class="col-md-6">
+    <p><h2 class="playlist-heading playlist-name" id="<%=@playlist.id%>"><%= @playlist.name %></h2>
+    (<%= link_to "Back", playlist_path %>)
+    (<%= link_to "Delete", @playlist, :method => :delete %>)</p>
+  </div>
+  <div class="col-md-1">
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-8">
-    <table id="results">
+  <div class="col-md-1">
+  </div>  
+  <div class="col-md-7">
+    <h3>Add Albums to Playlist</h3>
+    <%= render partial: "/records/search" %>
+  </div>
+  <div class="col-md-4">
+    <h3>Playlist</h3>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <table id="results" class="table table-hover">
+      <!-- Search results -->
     </table>
+  </div>
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-4">
+    <ol class="playlist">
+      <% @records.each do |record| %>
+      <li>
+        <%= record.album_name %> - <%= record.artist_name %>
+      </li>
+      <% end %>
+    </ol>
+  </div>
+  <div class="col-md-1">
   </div>
 </div>

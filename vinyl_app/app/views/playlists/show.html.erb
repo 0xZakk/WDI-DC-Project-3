@@ -1,19 +1,40 @@
-<h1><%= @playlist.name %></h1>
-
 <div class="row">
-  <div class="col-md-6">
-    <h3>Add Albums to Playlist</h3>
-    <%= render partial: "/records/search" %>
+  <div class="col-md-1">
   </div>
   <div class="col-md-6">
-    <h3>Playlist</h3>
+    <p><h2 class="playlist-heading" id="<%=@playlist.id%>"><%= @playlist.name %></h2>
+    (<%= link_to "Edit", edit_playlist_path %>)
+  </p>
   </div>
+  <div class="col-md-1">
+  </div>
+  
 </div>
 
+
 <div class="row">
-  <div class="col-xs-5 col-sm-4">
-    <table id="results" class="table table-hover">
-      <!-- Search results -->
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <table class="table table-hover">
+      <tr>
+        <th>#</th>
+        <th>Record</th>
+        <th>Artist/Band</th>
+        <!-- <th></th> -->
+      </tr>
+      <% @records.each_with_index do |record, index| %>
+        <tr id="<%= record.id %>">
+          <td><%= index + 1 %></td>
+          <td><%= link_to record.album_name, record %></td>
+          <td><%= record.artist_name %></td>
+          <!-- <td>
+            <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </td> -->
+        </tr>
+      <% end %>
     </table>
   </div>
 </div>

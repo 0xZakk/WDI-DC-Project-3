@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>VinylApp</title>
+  <%= stylesheet_link_tag :all %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,7 +12,6 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a class="navbar-brand" href="/" class="active">Vinyl.me</a></li>
@@ -25,10 +25,9 @@
             <li>
               <%=
                  link_to_if(@current_user.nil?, "Login", new_user_session_path) do
-                   link_to(@current_user.login, { controller: "accounts", action: "show", id: @current_user })
+                  link_to(@current_user.email, {controller: "home", action: "index"})
                  end
               %>
-              <%#= link_to "Sign In", new_user_session_path %>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
