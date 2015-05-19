@@ -5,11 +5,12 @@ var PlaylistRecord = function(data){
 PlaylistRecord.prototype = {
   save: function(){
     var playlist_id = $(".playlist-name").attr("id");
-    
+    var record_id = this.data.id;
+
     $.ajax({
       type: "post",
       data: {playlist_record: {
-        record_id: this.data.id,
+        record_id: record_id,
         playlist_id: playlist_id
       }},
       dataType: 'json',
@@ -18,7 +19,7 @@ PlaylistRecord.prototype = {
       console.log("relationship successfully added to relationship database");
       console.log(response);
     }).fail(function( jqXHR, textStatus ) {
-      console.log( "Request failed: " + textStatus );
+      console.log( "Request failed: " + textStatus);
     });
   }
 };

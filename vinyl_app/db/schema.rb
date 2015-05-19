@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20150514141420) do
   add_index "playlist_records", ["record_id"], name: "index_playlist_records_on_record_id", using: :btree
 
   create_table "playlists", force: :cascade do |t|
-    t.string "name"
-    t.string "genre"
+    t.string  "name"
+    t.string  "genre"
+    t.integer "user_id"
   end
 
   create_table "records", force: :cascade do |t|

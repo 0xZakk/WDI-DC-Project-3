@@ -19,8 +19,9 @@ Record.prototype = {
       url: window.location.origin + '/records.json'
     }).done(function(response){
       console.log("Record successfully added to record database");
-      var playlistRecord = new PlaylistRecord(response);
+      console.log("Record ID: " + response.id);
 
+      var playlistRecord = new PlaylistRecord(response);
       playlistRecord.save();
 
       $(".playlist").append("<li>"+ response.album_name + "</li>");

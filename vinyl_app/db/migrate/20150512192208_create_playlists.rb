@@ -3,6 +3,7 @@ class CreatePlaylists < ActiveRecord::Migration
     create_table :playlists do |t|
       t.string :name
       t.string :genre
+      t.belongs_to :user
     end
   end
 end

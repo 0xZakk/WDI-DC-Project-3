@@ -3,7 +3,9 @@
   </div>
   <div class="col-md-6">
     <p><h2 class="playlist-heading" id="<%=@playlist.id%>"><%= @playlist.name %></h2>
-    (<%= link_to "Edit", edit_playlist_path %>)
+    <% if can? :update, @playlist %>
+      (<%= link_to "Edit", edit_playlist_path %>)
+    <% end %>
   </p>
   </div>
   <div class="col-md-1">
@@ -11,6 +13,13 @@
   
 </div>
 
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-6">
+    <p>This playlist belongs to: <%#= @playlist.user.email %></p>
+  </div>  
+</div>
 
 <div class="row">
   <div class="col-md-1">
