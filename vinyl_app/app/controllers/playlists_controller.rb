@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-  authorize_resource
+  # authorize_resource
   
   def index
     @playlists = Playlist.all

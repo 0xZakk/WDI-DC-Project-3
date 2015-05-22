@@ -3,9 +3,9 @@ class Ability
 
   def initialize(user)
     can :read, Playlist
-
+    can :create, Playlist
+    
     if user
-        can :create, Playlist
         can [:update, :destroy], Playlist, :user_id => user.id
     end
 
