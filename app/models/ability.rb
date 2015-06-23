@@ -2,11 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, Playlist
-    can :create, Playlist
-    
     if user
+        can [:read, :create], Playlist
         can [:update, :destroy], Playlist, :user_id => user.id
+    else
+        can :read, :all
     end
 
 

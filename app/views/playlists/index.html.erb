@@ -4,9 +4,9 @@
   <div class="col-md-4">
     <p>
       <h2 class="playlist-heading">Playlists</h2> 
+      <% if can? :create, Playlist %>
         (<%= link_to "Create", new_playlist_path %>)
-      <%# if can? :create, @playlist %>
-      <%# end %>
+      <% end %>
     </p>
   </div>  
 </div>
